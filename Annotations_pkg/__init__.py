@@ -11,7 +11,10 @@
 from Annotations_pkg.student_cls import STUDENT
 
 if __name__ == '__main__':
+    #Create a student with valid details
     James = STUDENT("James Bowman", "Computer Lab", "Object Orientated Programming")
     James.display_student_details()
-
+    print("\n")
+    #Create a student with invalid details
     Marty = STUDENT("Marty McFly", "Prefabs", "Advanced Time Travel")
+    #Marty.display_student_details()

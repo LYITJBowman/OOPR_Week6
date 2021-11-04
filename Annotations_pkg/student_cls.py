@@ -15,48 +15,30 @@ from Annotations_pkg.module_cls import MODULE
 class STUDENT:
     def __init__(self, name, room, module):
         self._name = name  # cannot be accessed outside of the class
-        self._room = ROOM(room)
-        self._module = MODULE(module)
+        try:
+            self._room = ROOM(room)
+        except ValueError:
+            print("Pick a valid room!")
+        try:
+            self._module = MODULE(module)
+        except ValueError:
+            print("Pick a valid module!")
 
     @property
     def name(self):
         return self._name  # getter
 
-    @property
-    def room(self):
-        return self._room  # getter
-
-    @property
-    def module(self):
-        return self._module  # getter
-
     @name.setter
     def name(self, name):
         self._name = name  # cannot be accessed outside of the class
-
-    @room.setter
-    def room(self, name):
-        self._room = room  # cannot be accessed outside of the class
-
-    @module.setter
-    def module(self, module):
-        self._module = module  # cannot be accessed outside of the class
 
     @name.getter
     def name(self):
         return self._name
 
-    @room.getter
-    def room(self):
-        return self._room
-
-    @module.getter
-    def module(self):
-        return self._module
-
     def display_student_details(self):
         print("Student Name: {}".format(self._name))
-        print("Room: ()".format(self._room))
-        print("Module: ()".format(self._module))
+        self._room.display_room_details()
+        self._module.display_module_details()
 
 

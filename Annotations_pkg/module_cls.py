@@ -15,6 +15,8 @@ Modules_List = {"Object Orientated Programming", "Software Engineering"}
 
 class MODULE:
     def __init__(self, name):
+        if name not in Modules_List:
+            raise ValueError("Invalid Module Name")
         self._module_name = name  # cannot be accessed outside of the class
 
     @property
@@ -27,6 +29,10 @@ class MODULE:
         if name not in Modules_List:
             raise ValueError("Invalid Module Name")
         self._module_name = name  # cannot be accessed outside of the class
+
+    @module_name.getter
+    def module_name(self):
+        return self._module_name
 
     def display_module_details(self):
         print("Module Name: {}".format(self._module_name))

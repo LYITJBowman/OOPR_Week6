@@ -15,6 +15,8 @@ Room_List = {"Main Lecture Hall", "Computer Lab"}
 
 class ROOM:
     def __init__(self, name):
+        if name not in Room_List:
+            raise ValueError("Invalid Room Name")
         self._room_name = name  # cannot be accessed outside of the class
 
     @property
@@ -27,6 +29,10 @@ class ROOM:
         if name not in Room_List:
             raise ValueError("Invalid Room Name")
         self._room_name = name  # cannot be accessed outside of the class
+
+    @room_name.getter
+    def room_name(self):
+        return self._room_name
 
     def display_room_details(self):
         print("Room Name: {}".format(self._room_name))
